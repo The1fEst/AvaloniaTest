@@ -1,0 +1,38 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="Avalonia.NETCoreApp.Main"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel Orientation="Horizontal">
+        <Button Content="1" />
+        <Button Content="2" />
+        <Button Content="3" />
+        <TextBox />
+        <ListBox x:Name="Box">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Left" Text="{Binding ItemName}" />
+                            <Button
+                                Command="{Binding OpenCommand}"
+                                CommandParameter="{Binding UrlName}"
+                                Content="Open"
+                                HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button
+            Command="{Binding OpenCommand}"
+            CommandParameter="test"
+            Content="Open"
+            HorizontalAlignment="Right" />
+    </StackPanel>
+</UserControl>
